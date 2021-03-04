@@ -1,0 +1,47 @@
+@using GP.BL.Domain
+@model AddWerknemerTaak
+
+@{
+    ViewBag.Title = "Add Werknemer To Taak";
+    Layout = "_Layout";
+}
+
+<h2>Add Werknemer To Taak</h2>
+
+<form asp-controller="WerknemerTaak" asp-action="Add" method="post">
+    
+    <div class="form-group">
+        <label asp-for="@Model.WerknemerTaak.Werknemer.Pid">Personeelsnummer</label>
+        <input asp-for="@Model.WerknemerTaak.Werknemer.Pid" class="form-control"/>
+        <span asp-validation-for="@Model.WerknemerTaak.Werknemer.Pid" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+            <label asp-for="@Model.WerknemerTaak.Taak.Functie">Functie</label>
+            <select asp-for="@Model.WerknemerTaak.Taak.Functie" asp-items="@Html.GetEnumSelectList<Functie>()" class="form-control">
+                <option selected="selected" value="">Please select</option>
+            </select>
+        </div>
+    <div class="form-group">
+       <label asp-for="@Model.WerknemerTaak.Afdeling">Afdeling</label>
+               <select asp-for="@Model.WerknemerTaak.Afdeling" asp-items="@Html.GetEnumSelectList<Afdelingen>()" class="form-control">
+                   <option selected="selected" value="">Please select</option>
+               </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.WerknemerTaak.Taak.TaakId">TaakID</label>
+        <input asp-for="@Model.WerknemerTaak.Taak.TaakId" class="form-control"/>
+        <span asp-validation-for="@Model.WerknemerTaak.Taak.TaakId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.WerknemerTaak.Taakbeschrijving">TaakBeschrijving</label>
+        <input asp-for="@Model.WerknemerTaak.Taakbeschrijving" class="form-control" placeholder="vb: Alle lege karton uit de rekken halen en producten facen."/>
+        <span asp-validation-for="@Model.WerknemerTaak.Taakbeschrijving" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+            <label asp-for="@Model.WerknemerTaak.Taak.Uur">Start uur</label>
+            <input asp-for="@Model.WerknemerTaak.Taak.Uur" class="form-control"/>
+            <span asp-validation-for="@Model.WerknemerTaak.Taak.Uur" class="text-danger"></span>
+        </div>
+    <div></div>
+    <input type="submit" value="Verzenden" class="btn btn-primary"/>
+</form>

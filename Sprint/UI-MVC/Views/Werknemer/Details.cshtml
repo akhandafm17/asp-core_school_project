@@ -1,0 +1,66 @@
+@using GP.BL.Domain
+@model WerknemerDetailsModel
+
+
+@{
+    ViewBag.Title = "Werknemer";
+    Layout = "_Layout";
+}
+
+<h2>Werknemer Details</h2>
+<br>
+<table class="table table-borderless">
+    <tr>
+        <th>Naam</th>
+        <td>@Model.Werknemer.Naam</td>
+    </tr>
+    <tr>
+        <th>Personeelsnummer</th>
+        <td>@Model.Werknemer.Pid</td>
+      </tr>
+    <tr>
+        <th>Functie</th>
+        <td>@Model.Werknemer.Functie</td>
+    </tr>
+    <tr>
+       <th>Uurloon</th>
+       <td>@Model.Werknemer.Uurloon euro/uur</td>
+    </tr>
+    <tr>
+       <th>Volgende werkdag</th>
+       <td>@Model.Werknemer.Werkdag</td>
+    </tr>
+</table>
+<br><br>
+<h2>Taak</h2>
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th>taakId</th>
+        <th>personeelsnummer</th>
+        <th>uur</th>
+        <th>taakbeschrijving</th>
+        <th>WerkgeverId</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+   
+    @foreach (var taak in Model.Werknemer.Taken)
+    {
+        <tr>
+            <td>@taak.Taak.TaakId</td>
+            <td>@taak.Taak.Pid</td>
+            <td>@taak.Taak.Uur</td>
+            <td>@taak.Taakbeschrijving</td>
+            <td>@taak.Werknemer.WerkgeverPid</td>
+            <td><a asp-action="Details" asp-route-id="@Model.Werknemer.WerkgeverPid">Details</a></td>
+            <td><a asp-action="Delete" asp-route-id="@taak.Taak.Pid" asp-route-taakid="@taak.Taak.TaakId">Delete</a></td>
+        </tr>
+    }
+
+    </tbody>
+   
+   
+</table>

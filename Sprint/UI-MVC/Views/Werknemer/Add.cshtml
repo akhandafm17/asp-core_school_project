@@ -1,0 +1,47 @@
+@using GP.BL.Domain
+@model AddWerknemerModel
+
+@{
+    ViewBag.Title = "Add Werknemer";
+    Layout = "_Layout";
+}
+
+<h2>Add Werknemer</h2>
+<form asp-controller="Werknemer" asp-action="Add" method="post">
+    
+    <div class="form-group">
+           <label asp-for="@Model.Werknemer.Pid">Personeelsnummer</label>
+           <input asp-for="@Model.Werknemer.Pid" class="form-control"/>
+           <span asp-validation-for="@Model.Werknemer.Pid" class="text-danger"></span>
+       </div>
+    <div class="form-group">
+        <label asp-for="@Model.Werknemer.WerkgeverPid">Werkgever Personeelnummer</label>
+        <input asp-for="@Model.Werknemer.WerkgeverPid" class="form-control"/>
+        <span asp-validation-for="@Model.Werknemer.WerkgeverPid" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Werknemer.Naam">Naam</label>
+        <input asp-for="@Model.Werknemer.Naam" class="form-control"/>
+        <span asp-validation-for="@Model.Werknemer.Naam" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Werknemer.Uurloon">uurloon</label>
+        <input asp-for="@Model.Werknemer.Uurloon" class="form-control" placeholder="vb: 19 euro/uur"/>
+        <span asp-validation-for="@Model.Werknemer.Uurloon" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Werknemer.Werkdag">volgende werkdag</label>
+        <input asp-for="@Model.Werknemer.Werkdag" class="form-control" type="text"/>  
+        <span asp-validation-for="@Model.Werknemer.Werkdag" type="text" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Werknemer.Functie">Functie</label>
+        <select asp-for="@Model.Werknemer.Functie" asp-items="@Html.GetEnumSelectList<Functie>()" class="form-control">
+            <option selected="selected" value="">Please select</option>
+        </select>
+    </div>
+    <div></div>
+    <input type="submit" value="Verzenden" class="btn btn-primary"/>
+</form>
+
+

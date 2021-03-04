@@ -1,0 +1,33 @@
+@using GP.BL.Domain
+@model List<GP.BL.Domain.Taak>
+
+@{
+    ViewBag.Title = "show Taken of pid and/or uur";
+    Layout = "_Layout";
+}
+
+<h2>alle Taken</h2>
+<br><br>
+<table class="table table-hover">
+    <thead class="thead-dark">
+    <tr>
+        <th>Personeelsnummer</th>
+        <th>Functie</th>
+        <th>Startuur</th>
+        <th>TaakID</th>
+        <th></th>
+    </tr>
+    </thead>
+    @foreach (Taak taak in Model)
+    {
+        <tr>
+            <td>@taak.Pid</td>
+            <td>@taak.Functie</td>
+            <td>@taak.Uur</td>
+            <td>@taak.TaakId</td>
+
+            <td><a asp-action="Details" asp-route-functie="@taak.Functie" asp-route-uur="@taak.Uur">show taken by functie and uur</a></td>
+        </tr>
+    }
+</table>
+

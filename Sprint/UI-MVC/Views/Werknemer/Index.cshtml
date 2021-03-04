@@ -1,0 +1,36 @@
+
+@model List<GP.BL.Domain.Werknemer>
+
+@{
+    ViewBag.Title = "Werknemers";
+    Layout = "_Layout";
+}
+
+<h2>Alle Werknemers</h2>
+<br><br>
+<table class="table table-hover">
+    <thead class="thead-dark">
+         <tr>
+                <th>Personeelsnummer</th>
+                <th>Naam</th>
+                <th>Uurloon</th>
+                <th>Werkgever personeelsnummer</th>
+                <th>Functie</th>
+                <th></th>
+            </tr>
+    </thead>
+    @foreach (GP.BL.Domain.Werknemer werknemer in Model)
+    {
+        <tr>
+            <td>@werknemer.Pid</td>
+            <td>@werknemer.Naam</td>
+            <td>@werknemer.Uurloon</td>
+            <td>@werknemer.WerkgeverPid</td>
+            <td>@werknemer.Functie</td>
+
+            <td><a asp-action="Details" asp-route-id="@werknemer.Pid">Details</a></td>
+
+        </tr>
+    }
+</table>
+

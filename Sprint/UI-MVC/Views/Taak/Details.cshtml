@@ -1,0 +1,35 @@
+@model List<GP.BL.Domain.Taak>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>Show taken by functie and uur</h2>
+
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th>taakId</th>
+        <th>personeelsnummer</th>
+        <th>uur</th>
+        <th>Functie</th>
+      
+    </tr>
+    </thead>
+    <tbody>
+   
+    @foreach (var taak in Model)
+    {
+        <tr>
+            <td>@taak.TaakId</td>
+            <td>@taak.Pid</td>
+            <td>@taak.Uur</td>
+            <td>@taak.Functie</td>
+        </tr>
+    }
+
+    </tbody>
+   
+   
+</table>

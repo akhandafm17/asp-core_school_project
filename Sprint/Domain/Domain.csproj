@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <AssemblyName>GP.BL.Domain</AssemblyName>
+        <RootNamespace>GP.BL.Domain</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0-rc.2.20475.5" />
+    </ItemGroup>
+
+</Project>

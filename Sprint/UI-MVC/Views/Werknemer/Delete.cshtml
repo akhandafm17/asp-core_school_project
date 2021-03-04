@@ -1,0 +1,21 @@
+@model TaakModel
+
+@{
+    ViewBag.Title = "Delete Taak";
+    Layout = "_Layout";
+}
+
+<h2 xmlns="http://www.w3.org/1999/html">Delete Taak</h2>
+<p>Ben je zeker dat je onderstaand Taak (ID: @Model.Taak.TaakId) wenst te verwijderen?</p>
+<dl>
+    <dt>Personeelsnummer</dt><dd>@Model.Taak.Pid</dd>
+    <dt>Functie</dt><dd>@Model.Taak.Functie</dd>
+    <dt>Startuur</dt><dd>@Model.Taak.Uur</dd>
+    <dt>TaakID</dt><dd>@Model.Taak.TaakId</dd>
+</dl>
+
+<form asp-controller="Werknemer" asp-action="DeleteConfirmed" asp-route-pid="@Model.Taak.Pid" asp-route-taakid="@Model.Taak.TaakId" method="post">
+    <input class="btn-danger" type="submit" value="Verwijderen"/>    <a asp-action="Index" class="btn-primary">Annuleer</a>
+    </form>
+
+
